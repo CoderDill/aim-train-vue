@@ -1,20 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavBar />
+  <AimRange />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AimRange from './components/AimRange.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavBar,
+    AimRange
   }
 }
 </script>
 
 <style>
+html {
+  background-color: black;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
