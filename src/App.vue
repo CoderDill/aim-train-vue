@@ -1,19 +1,21 @@
 <template>
-  <NavBar />
-  <AimRange />
+  <AimRange score="score"/>
 </template>
 
 <script>
-import AimRange from './components/AimRange.vue'
-import NavBar from './components/NavBar.vue'
+import AimRange from "./components/AimRange.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    NavBar,
-    AimRange
-  }
-}
+    AimRange,
+  },
+  data() {
+    return {
+      score: 0,
+    };
+  },
+};
 </script>
 
 <style>

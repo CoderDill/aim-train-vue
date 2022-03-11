@@ -1,5 +1,6 @@
 <template>
   <div class="aimRange">
+    <h1>Score: {{ score }}</h1>
   </div>
 </template>
 
