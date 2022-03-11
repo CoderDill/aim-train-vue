@@ -5,11 +5,15 @@
 </template>
 
 <script>
-
-
 export default {
-    props: ['score', 'timerCount']
-}
+  data() {
+    return {
+      score: 0,
+      timerCount: 60
+    }
+  },
+  
+};
 </script>
 
 <style>
@@ -25,5 +29,4 @@ export default {
   cursor: crosshair;
   overflow: hidden;
 }
-
 </style>
