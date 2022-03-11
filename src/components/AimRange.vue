@@ -1,12 +1,14 @@
 <template>
   <div class="aimRange">
-    <h1>Score: {{ score }}</h1>
+    <h1>Score: {{ score }} Timer: {{ timerCount }}</h1>
   </div>
 </template>
 
 <script>
+
+
 export default {
-    
+    props: ['score', 'timerCount']
 }
 </script>
 

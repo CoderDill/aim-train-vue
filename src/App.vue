@@ -1,5 +1,6 @@
 <template>
-  <AimRange score="score"/>
+  <button v-on:click="timerCount">Start</button>
+  <AimRange v-bind:score="score" v-bind:timerCount="timerCount"/>
 </template>
 
 <script>
@@ -13,10 +14,24 @@ export default {
   data() {
     return {
       score: 0,
-    };
+      timerCount: 60
+    }
   },
+  watch: {
+    timerCount: {
+      handler(newVal) {
+        if (newVal > 0) {
+          setTimeout(() => {
+            this.timerCount--
+          }, 1000)
+        }
+      }
+    }
+  }
 };
 </script>
+
+
 
 <style>
 html {
