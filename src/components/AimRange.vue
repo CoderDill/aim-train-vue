@@ -1,18 +1,34 @@
 <template>
   <div class="aimRange">
     <h1>Score: {{ score }} Timer: {{ timerCount }}</h1>
+    <Countdown :showDays="false" :showHours="false" :showMinutes="false"/>
   </div>
 </template>
 
 <script>
+import { Countdown } from 'vue3-flip-countdown'
+
 export default {
+  components: {
+    Countdown,
+  },
   data() {
     return {
       score: 0,
       timerCount: 60
     }
   },
-  
+  watch: {
+    timerCount(newTime, oldTime) {
+      if (newTime > 0) {
+        setTimeout(() => {
+          this.timerCount--
+        })
+      } else {
+        console.log(oldTime)
+      }
+    }
+  }
 };
 </script>
 
