@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button @click="startGame">Start</button>
+  <button v-if="!isRunning" @click="startGame">Start</button>
 </div>
   <div class="aimRange">
     <h1>Score: {{ score }} Timer: {{ timerCount }}</h1>
@@ -16,24 +16,27 @@ export default {
   data() {
     return {
       score: 0,
-      timerCount: 60,
-      running: false
+      timerCount: 5,
+      isRunning: false
     }
   },
   watch: {
     timerCount(newTime) {
-
       if (newTime === 0) {
+        this.isRunning = false;
         clearInterval(this.interval)
       }
     }
   },
   methods: {
     startGame() {
+      this.isRunning = true;
       this.interval = setInterval(() => {
         this.timerCount--
-        this.running = true
       }, 1000);
+    },
+    addScore() {
+      this.score++
     }
   }
 };
