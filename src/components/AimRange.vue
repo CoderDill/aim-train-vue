@@ -1,32 +1,39 @@
 <template>
+<div>
+  <button @click="startGame">Start</button>
+</div>
   <div class="aimRange">
     <h1>Score: {{ score }} Timer: {{ timerCount }}</h1>
-    <Countdown :showDays="false" :showHours="false" :showMinutes="false"/>
   </div>
 </template>
 
 <script>
-import { Countdown } from 'vue3-flip-countdown'
 
 export default {
   components: {
-    Countdown,
+    
   },
   data() {
     return {
       score: 0,
-      timerCount: 60
+      timerCount: 60,
+      running: false
     }
   },
   watch: {
-    timerCount(newTime, oldTime) {
-      if (newTime > 0) {
-        setTimeout(() => {
-          this.timerCount--
-        })
-      } else {
-        console.log(oldTime)
+    timerCount(newTime) {
+
+      if (newTime === 0) {
+        clearInterval(this.interval)
       }
+    }
+  },
+  methods: {
+    startGame() {
+      this.interval = setInterval(() => {
+        this.timerCount--
+        this.running = true
+      }, 1000);
     }
   }
 };
