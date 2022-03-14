@@ -10,6 +10,7 @@
 </template>
 
 <script>
+// import AimApi from '../api/AimApi'
 
 export default {
   components: {
@@ -18,9 +19,10 @@ export default {
   data() {
     return {
       score: 0,
-      timerCount: 60,
+      timerCount: 3,
       isRunning: false,
-      gameOver: true
+      gameOver: true,
+      rewards: []
     }
   },
   watch: {
@@ -28,6 +30,7 @@ export default {
       if (newTime === 0) {
         this.isRunning = false;
         this.gameOver = false;
+        this.fetchReward();
         clearInterval(this.interval)
       }
     }
@@ -45,9 +48,25 @@ export default {
     },
     reset() {
       this.score = 0;
-      this.timerCount = 60;
+      this.timerCount = 3;
       this.gameOver = true;
-    }
+    },
+    async fetchReward() {
+         this.rewards = await (await fetch('https://valorant-api.com/v1/agents')).json()
+         
+         if (this.score > 10) {
+           console.log(this.rewards.data[0].bustPortrait)
+         }
+         if (this.score > 20) {
+           console.log(this.rewards.data[1].bustPortrait)
+         }
+         if (this.score > 25) {
+           console.log(this.rewards.data[2].bustPortrait)
+         }
+         if (this.score > 30) {
+           console.log(this.rewards.data[3].bustPortrait)
+         }
+        }
   }
 };
 </script>
@@ -69,7 +88,7 @@ h1 {
   overflow: hidden;
 }
 .btn {
-  background-color: #4CAF50; /* Green */
+  background-color: rgb(160, 97, 160); /* Green */
   border: none;
   color: white;
   padding: 10px 32px;
