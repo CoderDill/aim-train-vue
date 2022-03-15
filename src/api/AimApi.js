@@ -59,6 +59,11 @@ class AimApi {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
+
+  static async setReward(data) {
+    let res = await this.request(`rewards`, data, "post")
+    return res
+  }
 }
 
 export default AimApi;
