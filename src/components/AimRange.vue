@@ -1,7 +1,7 @@
 <template>
-  <div class="aimRange">
+  <div class="aimRange" ref="target">
     <h1>Score: {{ score }} Timer: {{ timerCount }}</h1>
-    <div v-if="isRunning" class="target" @click="addScore"></div>
+    <div v-if="isRunning" class="target" @click="addScore" :style="targetStyle"></div>
     <div class="btn-container">
       <button v-if="!isRunning && gameOver" @click="startGame" class="btn">
         Start
@@ -26,6 +26,12 @@ export default {
       gameOver: true,
       rewards: [],
       userId: 1,
+      targetStyle: {
+        position: "absolute",
+        top: "250",
+        right: `300px`,
+        fontColor: "white",
+    }
     };
   },
   watch: {
@@ -44,6 +50,8 @@ export default {
       this.gameOver = false;
       this.interval = setInterval(() => {
         this.timerCount--;
+        this.targetStyle.top = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().top)
+        this.targetStyle.right = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().right)
       }, 1000);
     },
     addScore() {
