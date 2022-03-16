@@ -21,15 +21,15 @@ export default {
   data() {
     return {
       score: 0,
-      timerCount: 3,
+      timerCount: 60,
       isRunning: false,
       gameOver: true,
       rewards: [],
       userId: 1,
       targetStyle: {
         position: "absolute",
-        top: "250",
-        right: `300px`,
+        top: '',
+        right: '',
         fontColor: "white",
     }
     };
@@ -50,8 +50,8 @@ export default {
       this.gameOver = false;
       this.interval = setInterval(() => {
         this.timerCount--;
-        this.targetStyle.top = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().top)
-        this.targetStyle.right = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().right)
+        this.targetStyle.top = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().top) + "px"
+        this.targetStyle.right = Math.floor(Math.random() * this.$refs.target.getBoundingClientRect().right) + "px"
       }, 1000);
     },
     addScore() {
@@ -59,7 +59,7 @@ export default {
     },
     reset() {
       this.score = 0;
-      this.timerCount = 3;
+      this.timerCount = 60;
       this.gameOver = true;
     },
     async fetchReward() {
@@ -67,31 +67,31 @@ export default {
         await fetch("https://valorant-api.com/v1/agents")
       ).json();
 
-      if (this.score > 10) {
+      if (this.score > 25) {
         AimApi.setReward({
           name: this.rewards.data[0].name,
           image: this.rewards.data[0].bustPortrait,
           user_id: this.userId,
         });
       }
-      if (this.score > 20) {
+      if (this.score > 50) {
         AimApi.setReward({
           name: this.rewards.data[1].name,
-          image: this.rewards.data[0].bustPortrait,
+          image: this.rewards.data[1].bustPortrait,
           user_id: this.userId,
         });
       }
-      if (this.score > 25) {
+      if (this.score > 75) {
         AimApi.setReward({
           name: this.rewards.data[2].name,
-          image: this.rewards.data[0].bustPortrait,
+          image: this.rewards.data[2].bustPortrait,
           user_id: this.userId,
         });
       }
-      if (this.score > 30) {
+      if (this.score > 100) {
         AimApi.setReward({
           name: this.rewards.data[3].name,
-          image: this.rewards.data[0].bustPortrait,
+          image: this.rewards.data[3].bustPortrait,
           user_id: this.userId,
         });
       }
