@@ -2,13 +2,14 @@
 <div class="nav">
   <h1>Aim Train</h1>
   <div class="nav-links">
-    <a href=''>Profile</a>
-    <a href=''>Sign In</a>
+    <a href='profile'>Profile</a>
+    <a href='login'>Sign In</a>
   </div>
 </div>
 </template>
 
 <script>
+
 export default {
     data() {
 
