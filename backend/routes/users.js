@@ -35,12 +35,12 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.post("/login", async function (req, res, next) {
+router.post("/LoginPage", async function (req, res, next) {
   try {
     let { username, password } = req.body;
     const user = await User.authenticate(username, password);
     const token = createToken(user);
-    return res.json({token});
+    return res.json({ token });
   } catch (err) {
     return next(err);
   }
@@ -52,7 +52,7 @@ router.post("/signup", async function (req, res, next) {
     const user = await User.register(username, password, email);
     const token = createToken(user);
 
-    return res.json({token});
+    return res.json({ token });
   } catch (err) {
     return next(err);
   }

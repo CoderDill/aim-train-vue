@@ -1,14 +1,13 @@
 <template>
-  <AimRange />
+  <router-view></router-view>
 </template>
 
 <script>
-import AimRange from "./components/AimRange.vue";
 
 export default {
   name: "App",
   components: {
-    AimRange,
+    
   }  
 };
 </script>

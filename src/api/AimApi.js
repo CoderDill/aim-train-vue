@@ -39,10 +39,10 @@ class AimApi {
     return res;
   }
 
-  /** Get token for login from username, password. */
+  /** Get token for LoginPage from username, password. */
 
-  static async login(data) {
-    let res = await this.request(`users/login`, data, "post");
+  static async LoginPage(data) {
+    let res = await this.request(`users/LoginPage`, data, "post");
     return res.token;
   }
 
@@ -53,16 +53,16 @@ class AimApi {
     return res.token;
   }
 
-  /** Save user profile page. */
+  /** Save user ProfilePage page. */
 
-  static async saveProfile(username, data) {
+  static async saveProfilePage(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
   static async setReward(data) {
-    let res = await this.request(`rewards`, data, "post")
-    return res
+    let res = await this.request(`rewards`, data, "post");
+    return res;
   }
 }
 
