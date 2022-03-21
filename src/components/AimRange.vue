@@ -17,7 +17,6 @@
 import AimApi from "../api/AimApi";
 
 export default {
-  components: {},
   data() {
     return {
       score: 0,
