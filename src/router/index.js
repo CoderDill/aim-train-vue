@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory}  from "vue-router";
 import HomePage from "../views/HomePage";
 import ProfilePage from "../views/ProfilePage";
-import Aim from "../views/Aim";
+import AimView from "../views/AimView.vue";
 import LoginPage from "../views/LoginPage";
 import SignUp from "../views/SignUp";
 
@@ -14,10 +14,10 @@ const routes = [
   {
     path: "/aim",
     name: "Aim",
-    component: Aim,
+    component: AimView,
   },
   {
-    path: "/ProfilePage",
+    path: "/profile",
     name: "ProfilePage",
     component: ProfilePage,
   },

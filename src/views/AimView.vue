@@ -6,7 +6,6 @@
 import AimRange from '../components/AimRange'
 
 export default {
-    name: 'AimRange',
     components: {
         AimRange
     }
