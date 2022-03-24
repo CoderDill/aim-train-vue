@@ -4,6 +4,8 @@
   <div class="nav-links">
     <router-link to='/profile'>Profile</router-link>
     <router-link to='/login'>Sign In</router-link>
+    <router-link to='/signup'>Sign Up</router-link>
+    <button @click="setUserId">click</button>
   </div>
 </div>
   <router-view></router-view>
@@ -11,12 +13,16 @@
 
 <script>
 
+
 export default {
   name: "App",
-  components: {
-    
-  }  
-};
+  methods: {
+      setUserId() {
+      this.$store.commit('setUser', {id: 1});
+      console.log(this.$store.state.userId)
+      }
+  }
+}
 </script>
 
 <style>
@@ -30,10 +36,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
+  background-color: black;
 }
 .nav {
     display: flex;
+    margin: 0;
     padding-left: 10px;
     background-color: black;
     justify-content: space-between;

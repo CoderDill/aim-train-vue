@@ -1,5 +1,5 @@
 <template>
-  <div className="Homepage">
+  <div className="homepage">
       <h1>Aim Train</h1>
       <p>First person shooter aim trainer.</p>
       <router-link to="/aim">
@@ -20,5 +20,8 @@ export default {
 </script>
 
 <style>
+  .homepage {
+    margin-top: 30vh;
 
+  }
 </style>
