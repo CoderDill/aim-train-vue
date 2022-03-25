@@ -2,17 +2,18 @@ import { createApp } from "vue";
 import { createStore } from 'vuex'
 import App from "./App.vue";
 import router from "./router/index";
+import './index.css'
 
 const store = createStore({
     state() {
         return {
-            userId: null
+            username: null
         }
     },
     mutations: {
         setUser(state, payload) {
             console.log(payload)
-            state.userId = payload.id
+            state.username = payload.username
         }
     }
 })
