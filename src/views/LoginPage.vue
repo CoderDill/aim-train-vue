@@ -1,5 +1,5 @@
 <template>
-  <div class="LoginForm text-white text-xl p-2 float-center">
+  <div class="LoginForm text-white text-2xl p-2 float-center">
     <h3 class="mb-3">Log In</h3>
     <div class="card align-middle">
       <div class="card-body">
@@ -25,7 +25,7 @@
               required
             />
           </div>
-          <button class="btn btn-success mt-2 float-center">Submit</button>
+          <button class="btn btn-success mt-1 float-center">Submit</button>
         </form>
       </div>
     </div>
