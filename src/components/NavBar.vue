@@ -2,17 +2,21 @@
   <div class="nav">
   <router-link to="/"><h1>Aim Train</h1></router-link>
   <div class="nav-links">
-    <router-link to='/profile'>Profile</router-link>
+    <router-link v-if="username" to='/profile'>Profile</router-link>
+    <div v-else>
     <router-link to='/login'>Sign In</router-link>
     <router-link to='/signup'>Sign Up</router-link>
+    </div>
   </div>
 </div>
 </template>
 
-<script>
-export default {
-    name: 'NavBar'
-}
+<script setup>
+import {useStore} from 'vuex'
+
+const store = useStore()
+const username = store.state.username
+
 </script>
 
 <style scoped>

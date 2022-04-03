@@ -47,15 +47,17 @@
 <script setup>
 import { ref } from "vue";
 import AimApi from "@/api/AimApi";
+import {useStore} from 'vuex'
 
+const store = useStore()
 const username = ref(null);
 const password = ref(null);
 const email = ref(null);
 
 async function handleFormData() {
-  console.log(username.value);
   const res = await AimApi.signup({username: username.value, password: password.value, email: email.value})
-  console.log(res)
+  store.state.username = username.value
+  store.state.token = res
 }
 </script>
 
