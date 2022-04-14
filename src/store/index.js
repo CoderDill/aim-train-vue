@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 import AimApi from '@/api/AimApi'
 
 const state = {
-    username: null
+    username: null,
+    token: null
 }
 
 const getters = {}
